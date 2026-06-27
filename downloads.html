@@ -222,6 +222,48 @@
         Desinstale a versão anterior antes de instalar. O OBB (1GB) será preservado automaticamente pelo script de instalação.
     </div>
 
+    <!-- BUILD 002 -->
+    <div class="build-card">
+        <div class="build-header">
+            <div>
+                <div class="build-title">Build 002 — God Mode</div>
+                <div class="build-date">27 de Junho de 2026</div>
+            </div>
+            <div class="tags">
+                <span class="tag tag-wip">Parcial</span>
+            </div>
+        </div>
+        <div class="build-body">
+            <div class="build-desc">
+                Patch binário no .so para desativar sistema de dano. God Mode funciona, 
+                mas inimigos também ficam invencíveis (Player::damage é compartilhado).
+            </div>
+
+            <div class="changelog">
+                <h4>O que tem de novo:</h4>
+                <ul>
+                    <li>Player::damage(int) desativado (offset 0x0a3694)</li>
+                    <li>Player::damage(int,bool,int) desativado (offset 0x0a31c0)</li>
+                    <li>Técnica: .so patchado injetado no APK após compilação</li>
+                    <li>Smali mods do Build 001 mantidos</li>
+                </ul>
+            </div>
+
+            <div class="changelog">
+                <h4>Problemas conhecidos:</h4>
+                <ul>
+                    <li class="fix">Inimigos também ficam invencíveis (Hit Kill não funciona)</li>
+                    <li class="fix">Causa: Player::damage é compartilhado entre jogador e inimigos</li>
+                </ul>
+            </div>
+
+            <a href="builds/build_002_godmode.apk" class="download-btn">
+                ⬇ Download Build 002
+            </a>
+            <span class="size">7.8 MB</span>
+        </div>
+    </div>
+
     <!-- BUILD 001 -->
     <div class="build-card">
         <div class="build-header">
@@ -249,56 +291,12 @@
                 </ul>
             </div>
 
-            <div class="changelog">
-                <h4>Mods planejados (em desenvolvimento):</h4>
-                <ul>
-                    <li class="pending">God Mode (vida infinita)</li>
-                    <li class="pending">Hit Kill (matar com 1 tiro)</li>
-                    <li class="pending">Carga infinita</li>
-                    <li class="pending">Todas as naves na Kaamo Club</li>
-                    <li class="pending">Mod Menu no pause</li>
-                    <li class="pending">Invisível para inimigos</li>
-                    <li class="pending">Atravessar asteroides</li>
-                    <li class="pending">Créditos infinitos</li>
-                </ul>
-            </div>
-
             <a href="builds/build_001_smali_mods.apk" class="download-btn">
                 ⬇ Download Build 001
             </a>
             <span class="size">7.5 MB</span>
         </div>
     </div>
-
-    <!-- BUILD TEMPLATE (para futuros builds) -->
-    <!--
-    <div class="build-card">
-        <div class="build-header">
-            <div>
-                <div class="build-title">Build 002 — God Mode</div>
-                <div class="build-date">XX de XXX de 2026</div>
-            </div>
-            <div class="tags">
-                <span class="tag tag-new">Novo</span>
-            </div>
-        </div>
-        <div class="build-body">
-            <div class="build-desc">
-                Descrição...
-            </div>
-            <div class="changelog">
-                <h4>O que tem de novo:</h4>
-                <ul>
-                    <li>Novo mod...</li>
-                </ul>
-            </div>
-            <a href="builds/build_XXX.apk" class="download-btn">
-                ⬇ Download Build 002
-            </a>
-            <span class="size">X.X MB</span>
-        </div>
-    </div>
-    -->
 
 </div>
 
