@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOF2 Mod — Downloads</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #0a0a1a;
+            color: #e0e0e0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+        }
+        .header {
+            background: linear-gradient(135deg, #0d1b2a, #1b2838);
+            border-bottom: 2px solid #00d4ff;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            color: #00d4ff;
+            font-size: 2em;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+            margin-bottom: 5px;
+        }
+        .header p {
+            color: #7a8a9a;
+            font-size: 0.9em;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .info-box {
+            background: #0d1b2a;
+            border: 1px solid #1a3a4a;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .info-box h3 {
+            color: #00d4ff;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+        .info-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        .info-box li {
+            padding: 4px 0;
+            color: #8a9aaa;
+            font-size: 0.85em;
+        }
+        .info-box li::before {
+            content: "▸ ";
+            color: #00d4ff;
+        }
+        .build-card {
+            background: linear-gradient(135deg, #0d1b2a, #112233);
+            border: 1px solid #1a3a4a;
+            border-radius: 12px;
+            margin: 20px 0;
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+        .build-card:hover {
+            border-color: #00d4ff;
+        }
+        .build-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: rgba(0, 212, 255, 0.05);
+            border-bottom: 1px solid #1a3a4a;
+        }
+        .build-title {
+            font-size: 1.3em;
+            color: #00d4ff;
+            font-weight: bold;
+        }
+        .build-date {
+            color: #5a6a7a;
+            font-size: 0.85em;
+        }
+        .build-body {
+            padding: 20px;
+        }
+        .build-desc {
+            color: #9aaaba;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        .changelog {
+            margin: 15px 0;
+        }
+        .changelog h4 {
+            color: #00d4ff;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+        .changelog ul {
+            list-style: none;
+            padding: 0;
+        }
+        .changelog li {
+            padding: 4px 0;
+            font-size: 0.85em;
+            color: #8a9aaa;
+        }
+        .changelog li::before {
+            content: "+ ";
+            color: #00ff88;
+            font-weight: bold;
+        }
+        .changelog li.fix::before {
+            content: "! ";
+            color: #ffaa00;
+        }
+        .changelog li.pending::before {
+            content: "○ ";
+            color: #5a6a7a;
+        }
+        .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin: 10px 0;
+        }
+        .tag {
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: bold;
+        }
+        .tag-ok {
+            background: rgba(0, 255, 136, 0.15);
+            color: #00ff88;
+            border: 1px solid rgba(0, 255, 136, 0.3);
+        }
+        .tag-wip {
+            background: rgba(255, 170, 0, 0.15);
+            color: #ffaa00;
+            border: 1px solid rgba(255, 170, 0, 0.3);
+        }
+        .tag-new {
+            background: rgba(0, 212, 255, 0.15);
+            color: #00d4ff;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #00d4ff, #0088aa);
+            color: #000;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1em;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+        .download-btn:hover {
+            background: linear-gradient(135deg, #33ddff, #00aacc);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+            transform: translateY(-1px);
+        }
+        .download-btn:active {
+            transform: translateY(0);
+        }
+        .size {
+            color: #5a6a7a;
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #3a4a5a;
+            font-size: 0.8em;
+            border-top: 1px solid #1a2a3a;
+            margin-top: 40px;
+        }
+        .warning {
+            background: rgba(255, 170, 0, 0.1);
+            border: 1px solid rgba(255, 170, 0, 0.3);
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin: 15px 0;
+            font-size: 0.85em;
+            color: #ffaa00;
+        }
+        .warning::before {
+            content: "⚠ ";
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>GALAXY ON FIRE 2 — MOD</h1>
+    <p>Mods para Android • Sem Root • Sem Emulador</p>
+</div>
+
+<div class="container">
+
+    <div class="info-box">
+        <h3>ℹ️ Informações</h3>
+        <ul>
+            <li>Jogo: Galaxy on Fire 2 HD v2.0.16</li>
+            <li>Plataforma: Android (armeabi-v7a)</li>
+            <li>Engine: AbyssEngine (C++ nativo)</li>
+            <li>Tipo: OFFLINE — sem anti-ban</li>
+            <li>Dispositivo testado: Samsung Galaxy Note 10 Plus (Android 12)</li>
+        </ul>
+    </div>
+
+    <div class="warning">
+        Desinstale a versão anterior antes de instalar. O OBB (1GB) será preservado automaticamente pelo script de instalação.
+    </div>
+
+    <!-- BUILD 001 -->
+    <div class="build-card">
+        <div class="build-header">
+            <div>
+                <div class="build-title">Build 001 — Mods Smali</div>
+                <div class="build-date">26 de Junho de 2026</div>
+            </div>
+            <div class="tags">
+                <span class="tag tag-ok">Estável</span>
+            </div>
+        </div>
+        <div class="build-body">
+            <div class="build-desc">
+                Primeira versão funcional com mods via código smali e dados binários. 
+                Inclui desbloqueio de DLCs, bypass de verificação de compras e stats das naves aumentados.
+            </div>
+
+            <div class="changelog">
+                <h4>O que tem de novo:</h4>
+                <ul>
+                    <li>DLC 1-5 desbloqueado (Supernova, Valkyrie, Kaamo Club)</li>
+                    <li>Compras sempre verificadas (verifyPurchase bypass)</li>
+                    <li>Stats das naves alterados para 9999 (HP, escudo, dano, carga, agilidade)</li>
+                    <li>Baseado no APK [Unlocked+Money]</li>
+                </ul>
+            </div>
+
+            <div class="changelog">
+                <h4>Mods planejados (em desenvolvimento):</h4>
+                <ul>
+                    <li class="pending">God Mode (vida infinita)</li>
+                    <li class="pending">Hit Kill (matar com 1 tiro)</li>
+                    <li class="pending">Carga infinita</li>
+                    <li class="pending">Todas as naves na Kaamo Club</li>
+                    <li class="pending">Mod Menu no pause</li>
+                    <li class="pending">Invisível para inimigos</li>
+                    <li class="pending">Atravessar asteroides</li>
+                    <li class="pending">Créditos infinitos</li>
+                </ul>
+            </div>
+
+            <a href="builds/build_001_smali_mods.apk" class="download-btn">
+                ⬇ Download Build 001
+            </a>
+            <span class="size">7.5 MB</span>
+        </div>
+    </div>
+
+    <!-- BUILD TEMPLATE (para futuros builds) -->
+    <!--
+    <div class="build-card">
+        <div class="build-header">
+            <div>
+                <div class="build-title">Build 002 — God Mode</div>
+                <div class="build-date">XX de XXX de 2026</div>
+            </div>
+            <div class="tags">
+                <span class="tag tag-new">Novo</span>
+            </div>
+        </div>
+        <div class="build-body">
+            <div class="build-desc">
+                Descrição...
+            </div>
+            <div class="changelog">
+                <h4>O que tem de novo:</h4>
+                <ul>
+                    <li>Novo mod...</li>
+                </ul>
+            </div>
+            <a href="builds/build_XXX.apk" class="download-btn">
+                ⬇ Download Build 002
+            </a>
+            <span class="size">X.X MB</span>
+        </div>
+    </div>
+    -->
+
+</div>
+
+<div class="footer">
+    GOF2 Mod Repository • Última atualização: 26/06/2026
+</div>
+
+</body>
+</html>
